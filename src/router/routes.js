@@ -1,13 +1,13 @@
 import store from '@state/store'
 
 export default [
-  {
+  /* {
     path: '/',
     name: 'home',
     component: () => lazyLoadView(import('@views/home')),
-  },
+  }, */
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: () => lazyLoadView(import('@views/login')),
     meta: {
@@ -15,7 +15,7 @@ export default [
         // If the user is already logged in
         if (store.getters['auth/loggedIn']) {
           // Redirect to the home page instead
-          next({ name: 'home' })
+          next({ name: 'profile' })
         } else {
           // Continue to the login page
           next()
@@ -71,7 +71,7 @@ export default [
           (route) => route.meta.authRequired
         )
         // Navigate back to previous page, or home as a fallback
-        next(authRequiredOnPreviousRoute ? { name: 'home' } : { ...routeFrom })
+        next(authRequiredOnPreviousRoute ? { name: 'login' } : { ...routeFrom })
       },
     },
   },

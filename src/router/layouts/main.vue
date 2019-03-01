@@ -1,24 +1,20 @@
 <script>
 import NavBar from '@components/nav-bar'
+import Footer from '@components/footer-main'
 
 export default {
-  components: { NavBar },
+  components: { NavBar, Footer },
 }
 </script>
 
 <template>
-  <div :class="$style.container">
+  <div>
     <NavBar />
     <slot />
+    <Footer />
   </div>
 </template>
 
 <style lang="scss" module>
 @import '@design';
-
-.container {
-  min-width: $size-content-width-min;
-  max-width: $size-content-width-max;
-  margin: 0 auto;
-}
 </style>

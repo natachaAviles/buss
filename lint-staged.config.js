@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
   '*.js': [
     'yarn lint:eslint',
     'yarn lint:prettier',
@@ -20,4 +20,4 @@ module.exports = {
   '*.scss': ['yarn lint:stylelint', 'yarn lint:prettier', 'git add'],
   '*.md': ['yarn lint:markdownlint', 'yarn lint:prettier', 'git add'],
   '*.{png,jpeg,jpg,gif,svg}': ['imagemin-lint-staged', 'git add'],
-}
+}*/

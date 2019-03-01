@@ -43,7 +43,9 @@ export default {
           this.tryingToLogIn = false
 
           // Redirect to the originally requested page, or to the home page
-          this.$router.push(this.$route.query.redirectFrom || { name: 'home' })
+          this.$router.push(
+            this.$route.query.redirectFrom || { name: 'profile' }
+          )
         })
         .catch((error) => {
           this.tryingToLogIn = false
@@ -55,29 +57,40 @@ export default {
 </script>
 
 <template>
-  <Layout>
-    <form :class="$style.form" @submit.prevent="tryToLogIn">
-      <BaseInputText
-        v-model="username"
-        name="username"
-        :placeholder="placeholders.username"
-      />
-      <BaseInputText
-        v-model="password"
-        name="password"
-        type="password"
-        :placeholder="placeholders.password"
-      />
-      <BaseButton :disabled="tryingToLogIn" type="submit">
-        <BaseIcon v-if="tryingToLogIn" name="sync" spin />
-        <span v-else>
-          Log in
-        </span>
-      </BaseButton>
-      <p v-if="authError">
-        There was an error logging in to your account.
-      </p>
-    </form>
+  <Layout :class="$style.form">
+    <div class="container">
+      <div class="card animated fadeInDownBig" :class="$style.logincard">
+        <div class="card-image"> </div>
+        <div class="card-content">
+          <form @submit.prevent="tryToLogIn">
+            <BaseInputText
+              v-model="username"
+              name="username"
+              :placeholder="placeholders.username"
+            />
+            <BaseInputText
+              v-model="password"
+              name="password"
+              type="password"
+              :placeholder="placeholders.password"
+            />
+            <BaseButton
+              :disabled="tryingToLogIn"
+              type="submit"
+              class="button is-primary is-rounded"
+            >
+              <BaseIcon v-if="tryingToLogIn" name="sync" spin />
+              <span v-else>
+                INGRESAR
+              </span>
+            </BaseButton>
+            <p v-if="authError" :class="$style.autherror">
+              There was an error logging in to your account.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
   </Layout>
 </template>
 
@@ -85,6 +98,30 @@ export default {
 @import '@design';
 
 .form {
-  text-align: center;
+  background-image: linear-gradient(
+      to right,
+      rgba(95, 186, 125, 0.9) 0%,
+      rgba(16, 138, 236, 0.9) 100%
+    ),
+    url('https://freedesignfile.com/upload/2015/07/Modern-Isometric-buildings-model-vector-material-06.jpg');
+  background-position: center;
+}
+.logincard {
+  max-width: 600px;
+  margin: 100px auto 200px auto;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.logincard input {
+  border: 1px solid rgba(95, 186, 125, 0.9);
+}
+.logincard input:focus {
+  border: 1px solid rgba(95, 186, 125, 0.9);
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.autherror {
+  font-size: 12px;
+  color: hsl(348, 100%, 61%);
 }
 </style>

@@ -27,9 +27,10 @@ export default {
         tag="li"
         key={route.name}
         to={route}
+        class="button is-primary  is-rounded is-outlined"
         exact-active-class={$style.active}
       >
-        <a>{getRouteTitle(route)}</a>
+        <a class="navbar-item">{getRouteTitle(route)}</a>
       </BaseLink>
     ))
   },
@@ -44,5 +45,8 @@ export default {
   color: $color-link-text-active;
   text-decoration: none;
   cursor: default;
+}
+.navbar_li {
+  list-style: none !important;
 }
 </style>
