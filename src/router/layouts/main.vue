@@ -9,9 +9,9 @@ export default {
 
 <template>
   <div>
-    <NavBar />
-    <slot />
-    <Footer />
+    <NavBar/>
+    <slot/>
+    <Footer/>
   </div>
 </template>
 

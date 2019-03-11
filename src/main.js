@@ -4,8 +4,14 @@ import router from '@router'
 import store from '@state/store'
 import '@components/_globals'
 import VueSwal from 'vue-swal'
+import VModal from 'vue-js-modal'
+import VuePikaday from '@enrian/vue-pikaday';
+Vue.use(VuePikaday);
+
+Vue.use(VModal)
 
 Vue.use(VueSwal)
+
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = process.env.NODE_ENV === 'production'

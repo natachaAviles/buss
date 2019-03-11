@@ -67,18 +67,12 @@ export default {
 </script>
 
 <template>
-  <!-- <ul :class="$style.container">
-
-  </ul>-->
-  <nav class="navbar is-transparent">
+  <nav class="navbar" :class="$style.main_navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <a class="navbar-item">
         <p :class="$style.navbar_title">ReadyBUSS</p>
       </a>
-      <div
-        class="navbar-burger burger"
-        data-target="navbarExampleTransparentExample"
-      >
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         <span></span>
         <span></span>
         <span></span>
@@ -93,8 +87,11 @@ export default {
               <!--<NavBarRoutes :routes="persistentNavRoutes" />-->
             </p>
             <p class="control">
-              <NavBarRoutes v-if="loggedIn" :routes="loggedInNavRoutes" />
-              <!--<NavBarRoutes v-else :routes="loggedOutNavRoutes" />-->
+              <router-link
+                v-if="loggedIn"
+                class="navbar-item button is-primary is-rounded is-outlined"
+                to="logout"
+              >Cerrar sesión</router-link>
             </p>
           </div>
         </div>
@@ -105,9 +102,12 @@ export default {
 
 <style lang="scss" module>
 @import '@design';
+.main_navbar {
+  background-color: #223344;
+}
 .navbar_title {
   font-family: 'Grand Hotel', cursive;
   font-size: 30px;
-  color: #000;
+  color: #ffffff;
 }
 </style>

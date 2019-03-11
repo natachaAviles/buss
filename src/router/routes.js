@@ -76,6 +76,26 @@ export default [
     },
   },
   {
+    path: '/trayectoAdmin',
+    name: 'trayectoAdmin',
+    component: () => lazyLoadView(import('@components/trayectoAdmin')),
+  },
+  {
+    path: '/horarioAdmin',
+    name: 'horarioAdmin',
+    component: () => lazyLoadView(import('@components/horarioAdmin')),
+  },
+  {
+    path: '/busAdmin',
+    name: 'busAdmin',
+    component: () => lazyLoadView(import('@components/busAdmin')),
+  },
+  {
+    path:'choferAdmin',
+    name:'choferAdmin',
+    component: () => lazyLoadView(import('@components/choferAdmin')),
+  },
+  {
     path: '/404',
     name: '404',
     component: require('@views/_404').default,
